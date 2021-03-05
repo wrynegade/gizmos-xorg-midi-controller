@@ -21,8 +21,17 @@ def set_key_map(Device):
 
     def bind_volume_slider(level, pulse_device_index):
         return bind(
-                Device.level_volume_control,
+                action=Device.level_volume_control,
                 level=level,
+                pulse_device_index=pulse_device_index,
+                ignore_keyup=True,
+                ignore_callback=True,
+                )
+
+    def bind_toggle_mute(pulse_device_index):
+        signal_handler = lambda _b, pulse_device_index: PA.toggle_mute(pulse_device_index=pulse_device_index)
+        return bind(
+                action=signal_handler,
                 pulse_device_index=pulse_device_index,
                 ignore_keyup=True,
                 ignore_callback=True,
@@ -68,7 +77,7 @@ def set_key_map(Device):
             '87'  : bind_volume_slider(level=7, pulse_device_index=1),
             '71'  : bind_volume_slider(level=7, pulse_device_index=1),
             '88'  : bind_volume_slider(level=8, pulse_device_index=1),
-            '72'  : bind(PA.toggle_mute, pulse_device_index=1),
+            '72'  : bind_toggle_mute(pulse_device_index=1),
             # --- default sink volume slider --------------------------------
             '96'  : bind_volume_slider(level=0, pulse_device_index=0),
             '112' : bind_volume_slider(level=0, pulse_device_index=0),
@@ -87,7 +96,7 @@ def set_key_map(Device):
             '103' : bind_volume_slider(level=7, pulse_device_index=0),
             '119' : bind_volume_slider(level=7, pulse_device_index=0),
             '104' : bind_volume_slider(level=8, pulse_device_index=0),
-            '120' : bind(PA.toggle_mute, pulse_device_index=0),
+            '120' : bind_toggle_mute(pulse_device_index=0),
             }
 
     Device.AUTOMAP_BINDINGS = {

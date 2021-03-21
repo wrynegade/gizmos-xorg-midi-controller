@@ -38,27 +38,52 @@ def set_key_map(Device):
                 )
 
     Device.KEY_BINDINGS = {
-            # --- tenkeypad binding -----------------------------------------
-            #'4'   : bind(XORG.bind_key, key_name='0'),
-            #'5'   : bind(XORG.bind_key, key_name='1'),
-            #'6'   : bind(XORG.bind_key, key_name='4'),
-            #'7'   : bind(XORG.bind_key, key_name='7'),
-            #'8'   : bind(XORG.bind_key, key_name='equal'),
-            #'20'  : bind(XORG.bind_key, key_name='0'),
-            #'21'  : bind(XORG.bind_key, key_name='2'),
-            #'22'  : bind(XORG.bind_key, key_name='5'),
-            #'23'  : bind(XORG.bind_key, key_name='8'),
-            #'24'  : bind(XORG.bind_key, key_name='slash'),
-            #'36'  : bind(XORG.bind_key, key_name='period'),
-            #'37'  : bind(XORG.bind_key, key_name='3'),
-            #'38'  : bind(XORG.bind_key, key_name='6'),
-            #'39'  : bind(XORG.bind_key, key_name='9'),
-            #'40'  : bind(XORG.bind_key, key_name='asterisk'),
-            #'52'  : bind(XORG.bind_key, key_name='Return'),
-            #'53'  : bind(XORG.bind_key, key_name='Return'),
-            #'54'  : bind(XORG.bind_key, key_name='plus'),
-            #'55'  : bind(XORG.bind_key, key_name='plus'),
-            #'56'  : bind(XORG.bind_key, key_name='minus'),
+            # --- misc. bindings --------------------------------------------
+            # col 1
+            '0'   : bind(XORG.bind_mouse),
+            '16'  : bind(XORG.bind_mouse),
+            '32'  : bind(XORG.bind_mouse),
+            '48'  : bind(XORG.bind_mouse),
+            # col 2
+            '1'   : bind(XORG.bind_mouse, mouse_key='3'),
+            '17'  : bind(XORG.bind_mouse, mouse_key='3'),
+            '33'  : bind(XORG.bind_mouse, mouse_key='3'),
+            '49'  : bind(XORG.bind_mouse, mouse_key='3'),
+            # col 3
+            #'2'   : ,
+            #'18'  : ,
+            #'34'  : ,
+            #'50'  : ,
+            # col 4
+            #'3'   : ,
+            #'19'  : ,
+            #'35'  : ,
+            #'51'  : ,
+            # col 5
+            #'4'   : ,
+            #'20'  : ,
+            #'36'  : ,
+            #'52'  : ,
+            # col 6
+            #'5'   : ,
+            #'21'  : ,
+            #'37'  : ,
+            #'53'  : ,
+            # col 7
+            #'6'   : ,
+            #'22'  : ,
+            #'38'  : ,
+            #'54'  : ,
+            # col 8
+            #'7'   : ,
+            #'23'  : ,
+            #'39'  : ,
+            #'55'  : ,
+            # col 9
+            '8'   : bind(XORG.bind_mouse, ignore_keyup=True),
+            '24'  : bind(XORG.bind_mouse, ignore_keyup=True, mouse_key='3'),
+            '40'  : bind(XORG.bind_key, key_name='w', ignore_keyup=True),
+            #'56'  : ,
             # --- default source volume slider ------------------------------
             '80'  : bind_volume_slider(level=0, pulse_device_index=1),
             '64'  : bind_volume_slider(level=0, pulse_device_index=1),
@@ -116,31 +141,20 @@ def set_key_map(Device):
             }
 
     Device.COLOR_MAP = {
-        #'default': [C.BRIGHT_RED, C.DIM_RED],
-        'default': [C.BRIGHT_GREEN, C.DIM_GREEN],
+        'default': [C.BRIGHT_RED, C.DIM_RED],
 
-        #'4' : [C.BRIGHT_ORANGE, C.MEDIUM_GREEN],
-        #'20': [C.BRIGHT_ORANGE, C.MEDIUM_GREEN],
-        #'52': [C.BRIGHT_ORANGE, C.MEDIUM_GREEN],
-        #'53': [C.BRIGHT_ORANGE, C.MEDIUM_GREEN],
+        '0'   : [C.BRIGHT_ORANGE, C.MEDIUM_ORANGE],
+        '16'  : [C.BRIGHT_ORANGE, C.MEDIUM_ORANGE],
+        '32'  : [C.BRIGHT_ORANGE, C.MEDIUM_ORANGE],
+        '48'  : [C.BRIGHT_ORANGE, C.MEDIUM_ORANGE],
+        '1'   : [C.BRIGHT_ORANGE, C.MEDIUM_RED],
+        '17'  : [C.BRIGHT_ORANGE, C.MEDIUM_RED],
+        '33'  : [C.BRIGHT_ORANGE, C.MEDIUM_RED],
+        '49'  : [C.BRIGHT_ORANGE, C.MEDIUM_RED],
 
-        #'54': [C.BRIGHT_ORANGE, C.YELLOW_GREEN],
-        #'55': [C.BRIGHT_ORANGE, C.YELLOW_GREEN],
-        #'36': [C.BRIGHT_ORANGE, C.YELLOW_GREEN],
-
-        #'5' : [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'6' : [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'7' : [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'8' : [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'21': [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'22': [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'23': [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'24': [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'37': [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'38': [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'39': [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'40': [C.BRIGHT_ORANGE, C.MEDIUM_RED],
-        #'56': [C.BRIGHT_ORANGE, C.MEDIUM_RED],
+        '8'   : [C.BRIGHT_RED, C.MEDIUM_GREEN],
+        '24'  : [C.BRIGHT_RED, C.MEDIUM_AMBER],
+        '40'  : [C.BRIGHT_RED, C.MEDIUM_RED],
 
         'automap' : {
             'default': [C.YELLOW_GREEN, C.DIM_GREEN],

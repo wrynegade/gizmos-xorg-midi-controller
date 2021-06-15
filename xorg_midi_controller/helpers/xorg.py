@@ -16,6 +16,11 @@ class XorgHelper:
         MEDIA_NEXT = 'XF86AudioNext'
         MEDIA_PREV = 'XF86AudioPrev'
 
+        ARROW_LEFT  = 'Left'
+        ARROW_DOWN  = 'Down'
+        ARROW_UP    = 'Up'
+        ARROW_RIGHT = 'Right'
+
     def is_keydown(self, byte_signal):
         return len(byte_signal) == 3 and byte_signal[2] > 0
 
@@ -45,6 +50,12 @@ class XorgHelper:
 
     def keyup(self, key_name):
         call(['xdotool', 'keyup', key_name])
+
+    def mousedown(self, mouse_key):
+        call(['xdotool', 'mousedown', mouse_key])
+
+    def mouseup(self, mouse_key):
+        call(['xdotool', 'mouseup', mouse_key])
 
     def key_status(self, key_regex):
         cmd = f'xset q | grep -q "{key_regex}:\\s*on" && echo 1'

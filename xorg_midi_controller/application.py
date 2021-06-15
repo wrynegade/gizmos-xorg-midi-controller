@@ -1,11 +1,11 @@
 from time import sleep
 from contextlib import ExitStack
 
-from xorg_midi_controller.devices import ALL
+from xorg_midi_controller.devices import LaunchpadX
 
 APPLICATION_REFRESH_TIME = 0.1
 
-DEVICE_LIST = [ *ALL ]
+DEVICE_LIST = [ LaunchpadX ]
 
 if __name__ == '__main__':
     with ExitStack() as stack:

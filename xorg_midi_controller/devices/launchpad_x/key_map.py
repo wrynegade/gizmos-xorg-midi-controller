@@ -138,7 +138,7 @@ def set_key_map(Device):
             #'49' : ,
             #'39' : ,
             #'29' : ,
-            #'19' : ,
+            '19' : bind(Device.update_all_lights, ignore_keyup=True),
             }
 
     Device.FLASH_MAP = {

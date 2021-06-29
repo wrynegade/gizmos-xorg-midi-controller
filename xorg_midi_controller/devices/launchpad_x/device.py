@@ -54,6 +54,7 @@ class LaunchpadX(Device):
     color_button = ANIMATION.color_button
     update_volume_bar = ANIMATION.update_volume_bar
     update_button_visual = ANIMATION.update_button_visual
+    update_all_lights = ANIMATION.update_all_lights
 
     def update_animation(self, _elapsed_time):
         for volume_bar in [

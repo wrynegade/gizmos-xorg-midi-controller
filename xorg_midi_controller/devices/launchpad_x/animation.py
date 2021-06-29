@@ -74,6 +74,16 @@ def boot(launchpad_x):
     for signal in signals:
         launchpad_x.color_button([*signal, 0])
 
+def update_all_lights(launchpad_x, *_args):
+    NOTE_ON = ByteMap.Channels.Out.NOTE_LIGHT_PULSE
+    CONTROL_ON = ByteMap.Channels.Out.CONTROL_GROUP_LIGHT_PULSE
+
+    for signal in [
+            [ NOTE_ON if note%10==9 or note>90 else CONTROL_ON, note ]
+            for note in all_note_values()
+            ]:
+        launchpad_x.color_button([*signal, 0])
+
 
 def update_button_visual(launchpad_x, note, is_active, color_map=None):
     launchpad_x.color_button(

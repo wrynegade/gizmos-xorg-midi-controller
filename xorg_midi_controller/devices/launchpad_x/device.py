@@ -19,7 +19,7 @@ class LaunchpadX(Device):
 
 
     def __init__(self, max_output=133, max_input=182):
-        super().__init__(name='Launchpad X', regex=r'^.*Launchpad X MIDI 2.*$')
+        super().__init__(name='Launchpad X', regex=r'^.*Launchpad X LPX MIDI.*$')
         self.MAX_OUTPUT_VOLUME = max_output
         self.MAX_INPUT_VOLUME = max_input
 
